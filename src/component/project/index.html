@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div>
+        <div class="content">
+            <!-- <p v-bind:title="ssit">{{name}}</p> -->
+            <!-- <p v-if="name" :title="ssit">{{name}}</p> -->
+            <!-- attribute bind -->
+            <!-- <h1>{{ssit}}</h1>
+            <input type="text" v-model="name"> -->
+
+            <!-- profile -->
+            <!-- <p :title="ssit" :class="className">{{profile.name}}</p>
+            <h1>{{ssit}}</h1>
+            <input type="text" v-model="ssit">
+            <div v-else class="card">
+                click
+            </div> -->
+
+            <!-- show-true v-if="!show" -->
+            <h1 v-if="show" >show</h1>
+            <h1 v-else>hide</h1>
+            <!-- show-false ! -->
+
+            
+            <span v-html="text"></span>
+            <span>{{text}}</span>
+
+
+
+            <ul>
+                <li v-for="(skill, index) in skills">{{index+1}}=>{{skill}}</li>
+                <li v-for="user in users">{{user}}</li>
+                <br>
+                <li v-for="user in users">name: {{user.name}} and Age: {{user.age}}</li>
+                <br>
+<!-- contion randering  -->
+                <li v-for="user in users" v-if="user.age>=20">name: {{user.name}} and Age: {{user.age}}</li>
+
+
+
+            </ul>
+
+
+        </div>
+        
+    </div>
+
+
+<script src="main.js"> </script>
+<script>
+let app = new Vue({
+    el:".content",
+    data:{
+        name:"roman hossain",
+        ssit:"smart soft",
+        profile:{ //property
+            name:"faceboo",
+            title:"go to fb",
+            url:"www.facebook.com",
+        },
+        className:"active",
+        show:true,
+        skills:["html","css","js","php"],
+        text:"<h1>lorem</h1>",
+
+
+        users:[
+        {name:"motalib hossain", age:22},
+        {name:"lamija", age:15},
+        {name:"sunjida", age:35},
+
+        ]
+    },
+});
+</script>
+</body>
+</html>

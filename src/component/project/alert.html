@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+</style>
+<body>
+<div class="content">
+
+    <input class="content" placeholder="" v-model="item">
+    <!-- <button v-on:click="addNewItem">add item</button> -->
+    <span class="alart" v-if="myAlert" @click="myAlert=false">Enpty data submit</span> <!-- alart -->
+    <button @click="addNewItem">add item</button>
+
+    <br>
+    <button @click="asc">ASC</button>
+    <button  @click="dsc">DSC</button>
+
+    <br>
+    <button @click="asc">ASC</button>
+    <button  @click="dsc">DSC</button>
+ 
+    <!-- input insert data print -->
+    <ul>
+        <li v-for="(skill,index) in skills">{{skill}} <button @click="removeItem(index)">Remove</button></li>
+    </ul>
+    <!-- input insert data print -->
+
+</div>
+<script src="main.js"></script>
+
+<script>
+    let app = new Vue({
+        el: '.content',
+        data: {
+            item:null,
+            myAlert:false,
+            skills:["html","css","javascript"],
+        },
+
+        methods:{
+            addNewItem: function(){
+//                console.log('test');
+                if(this.item !== null){
+                    this.skills.push(this.item);
+                    this.item=null
+                }else{
+                    this.myAlert=true;
+                }
+            },
+
+            
+            removeItem:function(i){
+//                console.log(index);
+                this.skills.splice(i, 1);
+            },
+
+            asc:function(i){
+    //                console.log(index);
+                this.skills.sort();
+            },
+            dsc:function(i){
+    //                console.log(index);
+                this.skills.reverse();
+            },
+        },
+
+      });
+    </script>
+</body>
+</html>

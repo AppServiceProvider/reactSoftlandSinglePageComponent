@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    .select[multiple] {
+        width: 100px;
+      }
+      
+</style>
+<body>
+<div class="content">
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>Selected: {{ selected }}</span>
+    </div>
+
+<script src="main.js"></script>
+
+<script>
+    new Vue({
+        el: '.content',
+        data: {
+          selected: 'A',
+          options: [
+            { text: 'One', value: 'A' },
+            { text: 'Two', value: 'B' },
+            { text: 'Three', value: 'C' }
+          ]
+        }
+      })
+    </script>
+</body>
+</html>

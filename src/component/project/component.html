@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<!-- <link rel="stylesheet" href="style.css"> -->
+
+</head>
+<style>
+
+</style>
+<body>
+    
+<div class="content">
+    <card title="title 1" content="content 1"></card>
+    <card title="title 2" content="content 2"></card>
+    <card title="title 3" content="content 3"></card>
+
+
+
+
+
+
+</div>
+
+<script src="main.js"></script>
+<script>
+
+Vue.component('card',{
+    template:`
+    <div class="card">
+  <div class="container">
+    <h4><b>{{title}}</b></h4>
+    <p>{{content}}</p>
+  </div>
+</div>
+`
+props:["title","content"]
+
+});
+
+    let app = new Vue({
+        el: '.content',
+        data: {},
+        method:{},
+      });
+
+
+      //   let app = new Vue({
+      //   el: '.content'
+      // });
+    </script>
+</body>
+</html>

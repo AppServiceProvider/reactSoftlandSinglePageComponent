@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+<div class="content">
+    <!-- <div v-for="posts in post">
+        <h4>{{posts.title}}</h4>
+        <p>{{posts.body}}</p>
+    </div> -->
+
+     <!-- <div v-for="posts in post">
+        <h4>{{posts.name}}</h4>
+        <p>{{posts.blood_group}}</p>
+    </div> -->
+
+
+
+
+    <table style="width:100%"  v-for="posts in post">
+        <tr>
+          <th>name</th>
+          <th>city</th>
+        </tr>
+        <tr>
+          <td>{{posts.name}}</td>
+          <td>{{posts.blood_group}}</td>
+        </tr>
+g b      </table>
+
+
+</div>
+<script src="axios.js"></script>
+<script src="main.js"></script>
+
+<script>
+    let app = new Vue({
+        el: '.content',
+        data: {
+           post:{},
+        },
+
+        methods:{
+            getPosts:function(){
+                // ***ONE***
+                axios.get("https://blog.donorbd.com/api/users").then(function(responce){
+                    // console.log(responce.data.users);
+                app.post=responce.data.users;
+            });
+
+                // ***ONE***
+                //     axios.get("https://jsonplaceholder.typicode.com/posts").then(function(responce){
+                //     // console.log(responce.data);
+                //     app.post=responce.data;
+                // });
+            },
+        },
+
+
+        mounted: function(){
+                this.getPosts();
+            }
+
+
+      });
+    </script>
+</body>
+</html>

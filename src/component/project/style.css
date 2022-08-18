@@ -1,0 +1,8 @@
+.active{
+    color:red;
+}
+.card{
+    color:green;
+    height: 30px;
+    background-color:chocolate;
+}
